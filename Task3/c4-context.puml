@@ -1,0 +1,36 @@
+@startuml c4-context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title C4 — Диаграмма контекста: MVP открытия депозитов онлайн
+
+Person(client, "Клиент банка", "Авторизованный — подаёт заявку в ИБ (UC-1). Новый — подаёт заявку на сайте (UC-2).")
+Person(operator, "Оператор кол-центра", "Обзванивает заявки с сайта, видит актуальные ставки.")
+Person(backoffice, "Менеджер бэк-офиса депозитов", "Обрабатывает заявку и подтверждает ставку в АБС (MVP — вручную). Ведёт ставки.")
+Person(creditoffice, "Менеджер бэк-офиса кредитов", "Ведёт оценку кредитного риска в АБС. Не имеет доступа к данным депозитов (F10).")
+
+System(ib, "Интернет-банк", "ASP.NET MVC 4.5 / MS SQL. Монолит на платформе подрядчика + новый Deposit Module.")
+System(site, "Сайт", "PHP / React.js. + страница ставок и форма заявки (новое).")
+System(cc, "Система кол-центра", "React.js / Java Spring Boot. + виджет ставок (новое).")
+System(abs, "АБС", "Delphi / Oracle / PL-SQL. Учёт операций, обработка заявок. + новый модуль ставок.")
+
+System(ds, "Deposit Service \n[НОВЫЙ]", "Java Spring Boot. Приём заявок, кэш и раздача ставок, SMS, выгрузка партнёру. Изолирует АБС от нагрузки ИБ.")
+
+System_Ext(sms, "SMS-шлюз", "Отправка SMS через телеком-оператора.")
+System_Ext(partner, "Партнёрский кол-центр", "Внешняя система. Только файловый обмен (SFTP).")
+
+Rel(client, ib, "UC-1: просмотр ставок, подача заявки", "HTTPS")
+Rel(client, site, "UC-2: просмотр ставок, заявка", "HTTPS")
+Rel(ib, ds, "Заявки, ставки, подтверждение SMS-кода", "REST API, HTTPS")
+Rel(site, cc, "Заявка нового клиента", "REST API")
+Rel(ds, abs, "Передача заявок, получение ставок", "Async API")
+Rel(abs, ds, "Уведомление об изменении ставок", "callback / webhook")
+Rel(ds, sms, "SMS-код, уведомления", "API")
+Rel(sms, client, "SMS клиенту", "SMS")
+Rel(ds, cc, "Актуальные ставки", "REST Rates API")
+Rel(ds, partner, "Файл ставок", "SFTP, ежедневно")
+Rel(operator, cc, "Обзвон клиентов, просмотр ставок")
+Rel(backoffice, abs, "Обработка заявок, ведение ставок (UC-3)")
+Rel(creditoffice, abs, "Оценка кредитного риска (раздельный доступ, F10)")
+
+SHOW_LEGEND()
+@enduml
