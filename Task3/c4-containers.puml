@@ -1,0 +1,60 @@
+@startuml c4-containers
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title C4 — Диаграмма контейнеров: MVP открытия депозитов. Детализированы интернет-банк и АБС.
+
+Person(client, "Клиент банка", "Подаёт заявку: авторизованный — в ИБ (UC-1), новый — на сайте (UC-2)")
+System_Ext(site, "Сайт", "PHP / React.js. Форма заявки нового клиента (UC-2)")
+System_Ext(cc, "Система кол-центра", "Обзвон заявок с сайта (UC-2) + потребитель Rates API")
+System_Ext(sms, "SMS-шлюз", "Внешний шлюз отправки SMS")
+System_Ext(partner, "Партнёрский кол-центр", "SFTP-сервер, файловый обмен")
+
+System_Boundary(ib, "Интернет-банк") {
+    Container(ib_web, "Web Application", "ASP.NET MVC 4.5", "Существующий фронтенд: платежи, текущие счета.")
+    Container(ib_deposit, "Deposit Module \n[НОВЫЙ]", ".NET", "UI депозитов: список, форма заявки, ввод SMS-кода. Вызывает Deposit Service.")
+    ContainerDb(ib_db, "MS SQL Database", "MS SQL Server", "Данные ИБ: счета, транзакции, сессии.")
+}
+
+System_Boundary(ds, "Deposit Service [НОВЫЙ, Java Spring Boot]") {
+    Container(ds_api, "Deposit API", "Spring Boot, REST", "Приём заявок от ИБ, валидация, подтверждение SMS-кода.")
+    Container(ds_rates, "Rates API", "Spring Boot, REST", "Отдаёт актуальные ставки системе кол-центра. Данные из Deposit DB.")
+    Container(ds_sms, "SMS Component", "Java", "Отправка SMS-кодов и уведомлений. Команда банка, без ядра подрядчика (+R2).")
+    Container(ds_abs, "ABS Integration Client", "Java", "Async-передача заявок в АБС, приём callback об изменении ставок.")
+    Container(ds_sftp, "SFTP Export Job", "Spring @Scheduled", "Ежедневно формирует CSV ставок и кладёт на SFTP для партнёра (+R7).")
+    ContainerDb(ds_db, "Deposit DB", "MS SQL / PostgreSQL", "Заявки + кэш ставок. Буфер, изолирующий АБС.")
+}
+
+System_Boundary(abs, "АБС") {
+    Container(abs_desktop, "Desktop Client", "Delphi", "Рабочее место бэк-офиса: обработка заявок, подтверждение ставки.")
+    Container(abs_logic, "Business Logic", "PL-SQL / Oracle", "Учёт операций, бухгалтерия, договоры.")
+    Container(abs_rates, "Deposit Rates Module \n[НОВЫЙ]", "PL-SQL", "Ведение ставок. Ролевой доступ: депозиты и кредиты разделены (F10).")
+    ContainerDb(abs_oracle, "Oracle Database", "Oracle DB", "Основная БД. Только вертикальное масштабирование (P4).")
+}
+
+Rel(client, ib_web, "UC-1: заявка в ИБ", "HTTPS")
+Rel(client, site, "UC-2: заявка на сайте", "HTTPS")
+Rel(site, cc, "Заявка нового клиента", "REST API")
+Rel(ib_web, ib_deposit, "Встраивает")
+Rel(ib_web, ib_db, "Читает/пишет")
+Rel(ib_deposit, ds_api, "Заявки, ставки, SMS-код", "REST API, HTTPS")
+
+Rel(ds_api, ds_db, "Читает/пишет заявки")
+Rel(ds_api, ds_sms, "Запрос SMS")
+Rel(ds_api, ds_abs, "Передача заявки")
+Rel(ds_rates, ds_db, "Читает ставки")
+Rel(ds_sftp, ds_db, "Читает ставки")
+Rel(ds_abs, ds_db, "Обновляет кэш ставок")
+
+Rel(ds_abs, abs_logic, "Передача заявок", "Async API")
+Rel(abs_rates, ds_abs, "Callback: ставки изменились", "webhook")
+Rel(ds_rates, cc, "Актуальные ставки", "REST Rates API")
+Rel(ds_sms, sms, "Отправка SMS", "HTTP")
+Rel(ds_sftp, partner, "CSV ставок", "SFTP")
+
+Rel(abs_desktop, abs_logic, "Обработка заявок")
+Rel(abs_desktop, abs_rates, "Ведение ставок")
+Rel(abs_logic, abs_oracle, "PL-SQL")
+Rel(abs_rates, abs_oracle, "PL-SQL")
+
+SHOW_LEGEND()
+@enduml
