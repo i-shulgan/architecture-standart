@@ -1,0 +1,26 @@
+@startuml c4-context-rates
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title C4 — Диаграмма контекста: передача ставок в кол-центр банка и партнёрский кол-центр
+
+Person(backoffice, "Менеджер бэк-офиса депозитов", "Ведёт ставки в АБС (UC-1)")
+Person(operator, "Оператор кол-центра банка", "Консультирует клиентов по актуальным ставкам (UC-2)")
+Person(partner_op, "Оператор партнёрского кол-центра", "Консультирует по ставкам из файла (UC-3)")
+
+System(abs, "АБС", "Delphi / Oracle / PL-SQL. Модуль ставок — источник правды (вместо Excel).")
+System(ds, "Deposit Service \n(Сервис интеграции депозитов)", "Java Spring Boot. Кэш ставок, Rates API, ежедневная выгрузка по SFTP. Изолирует АБС от нагрузки.")
+System(cc, "Система кол-центра банка", "React.js / Java Spring Boot. Отображает ставки оператору.")
+
+System_Ext(partner, "Партнёрский кол-центр", "Внешняя система. Только файловый обмен (SFTP), без API.")
+System_Ext(sftp, "SFTP-сервер", "Промежуточное хранилище файлов ставок для партнёра.")
+
+Rel(backoffice, abs, "Ведёт ставки (UC-1)")
+Rel(abs, ds, "Callback при изменении ставок", "webhook")
+Rel(operator, cc, "Смотрит ставки (UC-2)")
+Rel(cc, ds, "Запрос актуальных ставок", "REST Rates API, < 300 мс")
+Rel(ds, sftp, "Ежедневная выгрузка файла ставок", "SFTP, CSV")
+Rel(partner, sftp, "Забирает файл ставок", "SFTP pull")
+Rel(partner_op, partner, "Использует ставки из файла (UC-3)")
+
+SHOW_LEGEND()
+@enduml

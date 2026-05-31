@@ -1,0 +1,102 @@
+<mxfile host="app.diagrams.net" agent="Claude" version="24.8.4" pages="1">
+  <diagram id="roadmap_full_mvp_target" name="Roadmap_MVP_6m_Target">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="2200" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="p3_0" />
+        <mxCell id="p3_1" parent="p3_0" />
+
+        <!-- ===== Yellow background bands per system row (template style) ===== -->
+        <mxCell id="p3_band1" value="" style="shape=rect;fillColor=#fff2cc;strokeColor=none;html=1;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="180" y="140" width="1920" height="110" as="geometry" /></mxCell>
+        <mxCell id="p3_band2" value="" style="shape=rect;fillColor=#fff2cc;strokeColor=none;html=1;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="180" y="260" width="1920" height="160" as="geometry" /></mxCell>
+        <mxCell id="p3_band3" value="" style="shape=rect;fillColor=#fff2cc;strokeColor=none;html=1;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="180" y="430" width="1920" height="110" as="geometry" /></mxCell>
+        <mxCell id="p3_band4" value="" style="shape=rect;fillColor=#fff2cc;strokeColor=none;html=1;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="180" y="550" width="1920" height="110" as="geometry" /></mxCell>
+        <mxCell id="p3_band5" value="" style="shape=rect;fillColor=#fff2cc;strokeColor=none;html=1;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="180" y="670" width="1920" height="110" as="geometry" /></mxCell>
+        <mxCell id="p3_band6" value="" style="shape=rect;fillColor=#fff2cc;strokeColor=none;html=1;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="180" y="790" width="1920" height="90" as="geometry" /></mxCell>
+        <mxCell id="p3_band7" value="" style="shape=rect;fillColor=#fff2cc;strokeColor=none;html=1;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="180" y="890" width="1920" height="90" as="geometry" /></mxCell>
+
+        <!-- Title -->
+        <mxCell id="p3_title" value="Дорожная карта: MVP открытия депозитов (6 месяцев) + целевое решение (год)" style="text;html=1;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;fontColor=#333333;" vertex="1" parent="p3_1">
+          <mxGeometry x="0" y="10" width="1600" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- ===== Quarter / period headers (step shapes, template grey) ===== -->
+        <mxCell id="p3_q2" value="Q2 — мес. 1–2" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontStyle=1;align=center;rounded=0;fontColor=#333333;" vertex="1" parent="p3_1">
+          <mxGeometry x="180" y="60" width="480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_q3" value="Q3 — мес. 3–4" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontStyle=1;align=center;rounded=0;fontColor=#333333;" vertex="1" parent="p3_1">
+          <mxGeometry x="660" y="60" width="480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_q4" value="Q4 — мес. 5–6 → запуск MVP" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontStyle=1;align=center;rounded=0;fontColor=#333333;" vertex="1" parent="p3_1">
+          <mxGeometry x="1140" y="60" width="480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_tgt" value="Год 2 — целевое решение" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontStyle=1;align=center;rounded=0;fontColor=#333333;" vertex="1" parent="p3_1">
+          <mxGeometry x="1620" y="60" width="480" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ===== System row labels (template grey, left column) ===== -->
+        <mxCell id="p3_s1" value="АБС" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=15;fontStyle=1;" vertex="1" parent="p3_1"><mxGeometry x="0" y="140" width="180" height="110" as="geometry" /></mxCell>
+        <mxCell id="p3_s2" value="Deposit Service&#10;(Сервис интеграции&#10;депозитов)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=15;fontStyle=1;" vertex="1" parent="p3_1"><mxGeometry x="0" y="260" width="180" height="160" as="geometry" /></mxCell>
+        <mxCell id="p3_s3" value="Интернет-банк" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=15;fontStyle=1;" vertex="1" parent="p3_1"><mxGeometry x="0" y="430" width="180" height="110" as="geometry" /></mxCell>
+        <mxCell id="p3_s4" value="Система кол-центра" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=15;fontStyle=1;" vertex="1" parent="p3_1"><mxGeometry x="0" y="550" width="180" height="110" as="geometry" /></mxCell>
+        <mxCell id="p3_s5" value="Сайт" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=15;fontStyle=1;" vertex="1" parent="p3_1"><mxGeometry x="0" y="670" width="180" height="110" as="geometry" /></mxCell>
+        <mxCell id="p3_s6" value="Партнёрский&#10;кол-центр / SFTP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=15;fontStyle=1;" vertex="1" parent="p3_1"><mxGeometry x="0" y="790" width="180" height="90" as="geometry" /></mxCell>
+        <mxCell id="p3_s7" value="Инфраструктура" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;fontSize=15;fontStyle=1;" vertex="1" parent="p3_1"><mxGeometry x="0" y="890" width="180" height="90" as="geometry" /></mxCell>
+
+        <!-- ===== ROW 1: АБС ===== -->
+        <mxCell id="p3_a1" value="A1 — Модуль ставок в АБС&#10;(вместо Excel), ролевой доступ (F10)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="195" y="160" width="450" height="48" as="geometry" /></mxCell>
+        <mxCell id="p3_t1" value="T1 — API интеграции на стороне АБС&#10;+ A4 callback при изменении ставок" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="153" width="450" height="44" as="geometry" /></mxCell>
+        <mxCell id="p3_a2" value="A2 — Экраны обработки заявок (бэк-офис)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="199" width="450" height="40" as="geometry" /></mxCell>
+        <mxCell id="p3_tg1" value="Подтверждение ставки в АБС&#10;без участия бэк-офиса (автоматически)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1635" y="165" width="450" height="60" as="geometry" /></mxCell>
+
+        <!-- ===== ROW 2: Deposit Service ===== -->
+        <mxCell id="p3_d1" value="D1 — Создать проект, CI/CD" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="195" y="272" width="450" height="44" as="geometry" /></mxCell>
+        <mxCell id="p3_d3" value="D3 — SMS Component (без ядра подрядчика)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="195" y="322" width="450" height="44" as="geometry" /></mxCell>
+        <mxCell id="p3_t4" value="T4 — Получение ставок от АБС (Listener + кэш)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="268" width="450" height="34" as="geometry" /></mxCell>
+        <mxCell id="p3_d4" value="D4 — Rates API (ставки в КЦ, &lt;300мс)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="306" width="450" height="34" as="geometry" /></mxCell>
+        <mxCell id="p3_t2" value="T2 — SFTP Export Job (CSV ставок)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="344" width="450" height="34" as="geometry" /></mxCell>
+        <mxCell id="p3_d2" value="D2 — Deposit API (заявки + SMS-код)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="382" width="450" height="32" as="geometry" /></mxCell>
+        <mxCell id="p3_d6" value="D6 — OpenAPI документация" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1155" y="320" width="450" height="40" as="geometry" /></mxCell>
+        <mxCell id="p3_tg2" value="Автоматическое открытие депозита&#10;без ручной обработки бэк-офисом" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1635" y="300" width="450" height="60" as="geometry" /></mxCell>
+
+        <!-- ===== ROW 3: Интернет-банк ===== -->
+        <mxCell id="p3_i4" value="I4 — Горизонтальное масштабирование&#10;и failover между ЦОД (R2, R3)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="195" y="450" width="450" height="48" as="geometry" /></mxCell>
+        <mxCell id="p3_i1" value="I1 — Deposit Module (UI, форма, SMS-код)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1155" y="440" width="450" height="32" as="geometry" /></mxCell>
+        <mxCell id="p3_i2" value="I2 — Интеграция с Deposit Service (REST)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1155" y="474" width="450" height="28" as="geometry" /></mxCell>
+        <mxCell id="p3_i3" value="I3 — Кэш справочников, отклик &lt;300мс (P1,P2)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1155" y="504" width="450" height="28" as="geometry" /></mxCell>
+        <mxCell id="p3_tg3" value="Микросервисы депозитного модуля (+R6);&#10;Kafka после обновления платформы (+R5)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1635" y="455" width="450" height="60" as="geometry" /></mxCell>
+
+        <!-- ===== ROW 4: Система кол-центра ===== -->
+        <mxCell id="p3_t5" value="T5 — Вывод ставок оператору&#10;(виджет, Rates API) — UC-2" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="565" width="450" height="42" as="geometry" /></mxCell>
+        <mxCell id="p3_c1" value="C1 — Приём заявок с сайта (REST)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="609" width="450" height="40" as="geometry" /></mxCell>
+
+        <!-- ===== ROW 5: Сайт ===== -->
+        <mxCell id="p3_st2" value="S2 — Форма заявки (ФИО + телефон)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="690" width="450" height="44" as="geometry" /></mxCell>
+        <mxCell id="p3_st1" value="S1 — Страница депозитов со ставками" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1155" y="688" width="450" height="38" as="geometry" /></mxCell>
+        <mxCell id="p3_st3" value="S3 — Интеграция формы с системой кол-центра" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1155" y="728" width="450" height="38" as="geometry" /></mxCell>
+        <mxCell id="p3_tg5" value="Онлайн-заявка на кредит (ИБ + сайт)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="1635" y="700" width="450" height="50" as="geometry" /></mxCell>
+
+        <!-- ===== ROW 6: Партнёрский / SFTP ===== -->
+        <mxCell id="p3_t6" value="T6 — Получение файлов с SFTP&#10;операторами партнёра — UC-3" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="675" y="805" width="450" height="50" as="geometry" /></mxCell>
+
+        <!-- ===== ROW 7: Инфраструктура ===== -->
+        <mxCell id="p3_t3" value="T3 — Развернуть SFTP-сервер" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="195" y="900" width="450" height="34" as="geometry" /></mxCell>
+        <mxCell id="p3_d5" value="D5 — Deposit Service в двух ЦОД (R1)" style="shape=rect;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;spacing=4;rounded=0;" vertex="1" parent="p3_1"><mxGeometry x="195" y="938" width="450" height="34" as="geometry" /></mxCell>
+
+        <!-- ===== MVP milestone marker (end of Q4) ===== -->
+        <mxCell id="p3_mvp" value="🚀&#10;MVP" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=14;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=16;fontStyle=1;align=center;rounded=0;fontColor=#333333;" vertex="1" parent="p3_1">
+          <mxGeometry x="1595" y="140" width="30" height="840" as="geometry" />
+        </mxCell>
+
+        <!-- ===== Goal banner ===== -->
+        <mxCell id="p3_goal" value="Цель года: депозит открывается автоматически, в отделении — только фронт-офис, снижение операционных издержек (OPEX)." style="shape=rect;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;html=1;whiteSpace=wrap;align=left;verticalAlign=middle;spacing=8;rounded=0;" vertex="1" parent="p3_1">
+          <mxGeometry x="1620" y="800" width="480" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ===== Note ===== -->
+        <mxCell id="p3_note" value="Колонки = периоды (слева направо = время). T1–T6 — задачи кейса «Передача ставок» (Task4). Критический путь: A1 → T1/A4 → T4 → (D4→T5 для кол-центра банка) и (T2→T6 для партнёра); T3 готовится параллельно к T2." style="text;html=1;fontSize=12;align=left;verticalAlign=middle;fontColor=#555555;" vertex="1" parent="p3_1">
+          <mxGeometry x="0" y="1000" width="1900" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,30 @@
+@startuml c4-components-rates
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title C4 — Диаграмма компонентов: Deposit Service (кейс передачи ставок)
+
+System_Ext(abs, "АБС — модуль ставок", "Источник правды по ставкам. Вызывает callback при изменении.")
+System_Ext(cc, "Система кол-центра банка", "Потребитель Rates API")
+System_Ext(partner, "Партнёрский кол-центр", "Забирает файл с SFTP-сервера")
+System_Ext(sftp, "SFTP-сервер", "Хранилище файлов ставок")
+
+Container_Boundary(ds, "Deposit Service (Сервис интеграции депозитов)") {
+    Component(rates_listener, "ABS Rates Listener", "Spring REST Controller", "Принимает callback от АБС об изменении ставок, обновляет кэш.")
+    Component(rates_cache, "Rates Cache", "Spring Service + кэш", "Хранит актуальные депозитные ставки. Отдаёт за < 300 мс (P2). Только депозитные ставки (F10).")
+    Component(rates_api, "Rates API", "Spring REST Controller", "GET /api/rates — отдаёт актуальные ставки системе кол-центра.")
+    Component(sftp_job, "SFTP Export Job", "Spring @Scheduled", "Ежедневно формирует CSV из кэша и кладёт на SFTP-сервер (+R7).")
+    ComponentDb(rates_repo, "Rates Repository / Deposit DB", "MS SQL / PostgreSQL", "Персистентное хранилище ставок (фоллбэк для кэша).")
+}
+
+Rel(abs, rates_listener, "Изменение ставок", "callback / webhook")
+Rel(rates_listener, rates_cache, "Обновляет")
+Rel(rates_listener, rates_repo, "Сохраняет ставки")
+Rel(rates_cache, rates_repo, "Фоллбэк-чтение при старте")
+Rel(cc, rates_api, "Запрос ставок", "REST")
+Rel(rates_api, rates_cache, "Читает актуальные ставки")
+Rel(sftp_job, rates_cache, "Читает ставки для выгрузки")
+Rel(sftp_job, sftp, "Кладёт CSV-файл", "SFTP")
+Rel(partner, sftp, "Забирает файл", "SFTP pull")
+
+SHOW_LEGEND()
+@enduml
